@@ -7,24 +7,25 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
     <style>
-        body { margin:0px; padding:0px; }
+        body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
 </head>
 <body>
 
-<div id='map'></div>
+<div id="map" style="width:800px;height:600px"></div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2hpZHp6eSIsImEiOiJjajZ2bmM3bzkweDlhMnhwZ29mdG00cWRyIn0.k0U5-_wtySKMPaezDilrTQ';
 var map = new mapboxgl.Map({
-    style: 'mapbox://styles/mapbox/light-v9',
-    center: [151.2313, 33.9173],
-    zoom: 100,
-    pitch: 45,
-    bearing: -17.6,
+    style: 'mapbox://styles/chidzzy/cj9hvb90haa8s2slrqy89vem9',
+    center: [151.2296, -33.9182],
+    zoom: 16,
+    pitch: 40,
+    bearing: 20,
     hash: true,
     container: 'map'
 });
+//9.6/30
 
 // The 'building' layer in the mapbox-streets vector source contains building-height
 // data from OpenStreetMap.
