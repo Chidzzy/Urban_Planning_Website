@@ -10,10 +10,11 @@
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
+    
 </head>
 <body>
 
-<div id="map" style="width:800px;height:600px"></div>
+<div id="map" style="width:100;height:100"></div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2hpZHp6eSIsImEiOiJjajZ2bmM3bzkweDlhMnhwZ29mdG00cWRyIn0.k0U5-_wtySKMPaezDilrTQ';
 var map = new mapboxgl.Map({
@@ -25,38 +26,7 @@ var map = new mapboxgl.Map({
     hash: true,
     container: 'map'
 });
-//9.6/30
 
-// The 'building' layer in the mapbox-streets vector source contains building-height
-// data from OpenStreetMap.
-map.on('load', function() {
-    // Insert the layer beneath any symbol layer.
-    var layers = map.getStyle().layers.reverse();
-    var labelLayerIdx = layers.findIndex(function (layer) {
-        return layer.type !== 'symbol';
-    });
-    var labelLayerId = labelLayerIdx !== -1 ? layers[labelLayerIdx].id : undefined;
-    map.addLayer({
-        'id': '3d-buildings',
-        'source': 'composite',
-        'source-layer': 'building',
-        'filter': ['==', 'extrude', 'true'],
-        'type': 'fill-extrusion',
-        'minzoom': 15,
-        'paint': {
-            'fill-extrusion-color': '#aaa',
-            'fill-extrusion-height': {
-                'type': 'identity',
-                'property': 'height'
-            },
-            'fill-extrusion-base': {
-                'type': 'identity',
-                'property': 'min_height'
-            },
-            'fill-extrusion-opacity': .9
-        }
-    }, labelLayerId);
-});
 </script>
 
 </body>
